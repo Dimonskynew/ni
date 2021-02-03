@@ -660,11 +660,11 @@ globaledit:Show();
 
 CreateText(mainsettings, "Check for Updates:", 0, -370, 0.8, 0.1, 0.1, 1);
 CreateMainButton(mainsettings, 62, 22, "Core", -31, 30, function()
-	ni.functions.webrequest("https://api.github.com/repos/scizzydo/ni/commits?sha=beta", nil, false, function(code, body)
+	ni.functions.webrequest("https://api.github.com/repos/scizzydo/ni/commits", nil, false, function(code, body)
 		if code == 200 then
 			local t = ni.utils.json.decode(body);
-			if t[2]["sha"] ~= "9974905c4cfa8cadc31eb15a9d03ea06b54d46fe" then
-				ni.functions.open("https://github.com/scizzydo/ni/archive/beta.zip")
+			if t[2]["sha"] ~= "82408de3ebfb0a1e724d8c9b67b3f43d0a35cbb5" then
+				ni.functions.open("https://github.com/scizzydo/ni/archive/master.zip")
 			else
 				message("Up to date on core");
 			end
@@ -676,7 +676,7 @@ CreateMainButton(mainsettings, 62, 22, "Release", 31, 30, function()
 	ni.functions.webrequest("https://api.github.com/repos/scizzydo/ni/releases", nil, false, function(code, body)
 		if code == 200 then
 			local t = ni.utils.json.decode(body);
-			if t[2]["tag_name"] ~= "v0.0.46-beta" then
+			if t[2]["tag_name"] ~= "v0.0.47" then
 				ni.functions.open(t[1]["assets"][1]["browser_download_url"])
 			else
 				message("Up to date on releases");
