@@ -16,7 +16,7 @@ end
 healing.dontdispel = function(t)
 	for i = 1, #ni.tables.blacklisteddispels do
 		local blacklisted = ni.tables.blacklisteddispels[i]
-		local debuff = ni.unit.debuff(t, blacklisted)
+		local debuff = ni.unit.debuff(t, blacklisted, "EXACT")
 
 		if debuff then
 			local debufftype = select(5, UnitDebuff(t, debuff))
