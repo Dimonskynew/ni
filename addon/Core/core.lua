@@ -75,6 +75,7 @@ if not ni.loaded then
 	ni.vars = vars and json.decode(vars) or require(dir.."addon\\core\\vars.lua");
 	ni.vars.profiles.enabled = false;
 	ni.vars.profiles.genericenabled = false;
+	ni.vars.profiles.delay = 0;
 	ni.functions.savecontent(dir.."addon\\settings\\"..UnitName("player")..".json", json.encode(ni.vars));
 	ni.vars.build = select(4, GetBuildInfo());
 	ni.debug = require(dir.."addon\\core\\debug.lua");
